@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Canvas from "./components/Canvas";
+// import Canvas from "./components/Canvas";
+import PixiCanvas from "./components/Pixi";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Canvas />
+        <PixiCanvas />
       </div>
     );
   }

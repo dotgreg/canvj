@@ -32,7 +32,7 @@ class Video1 extends React.Component {
   render() {
     return (
       <div className="c-video1">
-        <video ref="video1" controls="controls" loop="loop" style={{display: 'none'}}>
+        <video ref="video1" controls="controls" loop="loop" style={{display: 'block'}}>
           <source src="https://www.quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogv" />
           <source src="https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4" />
         </video>
