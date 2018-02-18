@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Component1 from "./components/Component1";
+import Canvas from "./components/Canvas";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Component1 />
+        <Canvas />
       </div>
     );
   }
