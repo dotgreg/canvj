@@ -38,7 +38,8 @@ class PixiCanvas extends React.Component {
 
      var filter = new PIXI.filters.ColorMatrixFilter();
      var blurFilter1 = new PIXI.filters.BlurFilter();
-     videoSprite.filters = [filter, blurFilter1];
+     // videoSprite.filters = [filter, blurFilter1];
+     videoSprite.blendMode = PIXI.BLEND_MODES.MULTIPLY
      app.stage.addChild(videoSprite);
 
 
@@ -145,22 +146,23 @@ class PixiCanvas extends React.Component {
     };
     console.log(textureArray)
 
-    setTimeout(() => {
-      let mc = new PIXI.extras.AnimatedSprite(textureArray);
+    let mc = new PIXI.extras.AnimatedSprite(textureArray);
 
-      // mc = new PIXI.Sprite(texture);
-      console.log(mc)
-      app.stage.addChild(mc);
-      mc.position.x = 10
-      mc.position.y = 200
-      mc.width = 300
-      mc.height = 300
-      mc.play()
-      // mc.playing = true
-    }, 1000)
+    // mc = new PIXI.Sprite(texture);
+    console.log(mc)
+    app.stage.addChild(mc);
+    mc.position.x = 10
+    mc.position.y = 200
+    mc.width = 300
+    mc.height = 300
+    mc.play()
+
+    mc.blendMode = PIXI.BLEND_MODES.SCREEN
+
+    // mc.filters = [filter];
 
 
-    app.start()
+    // app.start()
 
 
     // console.log(sprite1)
