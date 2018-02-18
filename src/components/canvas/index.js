@@ -6,6 +6,9 @@ import {fabric} from 'fabric'
 import {e} from '../../engine'
 import * as a1 from '../../visuals/simple1'
 import * as a2 from '../../visuals/simple2'
+import * as i1 from '../../visuals/image1'
+
+import Video1 from '../../visuals/video1'
 
 import './canvas.sass'
 
@@ -19,11 +22,8 @@ class Canvas extends React.Component {
 
     a1.start()
     a2.start()
-  }
-
-  componentWillUnmount() {
-    a1.remove() 
-    a2.remove()
+    i1.start()
+    this.refs.video1.start()
   }
 
   render() {
@@ -31,6 +31,7 @@ class Canvas extends React.Component {
       <div className="c-canvas">
         hello
         <canvas ref="canvas"></canvas>
+        <Video1 ref="video1" />
       </div>
     )
   }

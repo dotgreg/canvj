@@ -16,7 +16,7 @@ export let start = () => {
 
   rect =  new fabric.Rect({
     left: 100,
-    top: 100,
+    top: 100, 
     fill: 'orange',
     width: 20,
     height: 20,
@@ -26,8 +26,4 @@ export let start = () => {
 
   e.canvas.add(rect)
   moveLeft()
-}
-
-export let remove = () => {
-  // rect = {}
 }
