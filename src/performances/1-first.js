@@ -13,6 +13,7 @@ export let goToCompo = (nb) => {
       addVisual('sprite1')
       break;
     case 2:
+      addVisual('sprite1')
       addVisual('video1')
 
       break;

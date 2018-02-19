@@ -21,13 +21,21 @@ class PixiCanvas extends React.Component {
     performance.goToCompo(1)
     performance.initKeysTracking()
 
+    this.resizeContainer()
+    window.addEventListener("resize", this.resizeContainer)
+  }
 
+  componenentWillUnmount() {
+    window.removeEventListener("resize", this.resizeContainer)
+  }
+
+  resizeContainer() {
+    state.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 
   render() {
     return (
       <div className="c-pixi">
-        hello from pixifdsafds fsdafdsfd dsadasads
         <div ref="pixiContainer" className="pixi-container"></div>
       </div>
     )

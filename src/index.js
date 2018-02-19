@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 import PixiCanvas from "./components/PixiCanvas";
 
+import './style/reset.sass'
+
 class App extends React.Component {
   render() {
     return (
