@@ -21,6 +21,7 @@ npm manifest:
     "license": "MIT",
     "dependencies": {
       "fabric": "^2.0.1",
+      "lodash": "^4.17.5",
       "node-sass": "^4.7.2",
       "pixi.js": "^4.7.0",
       "react": "^16.2.0",
@@ -2524,6 +2525,10 @@ Lockfile:
       json-schema "0.2.3"
       verror "1.10.0"
   
+  keypress@^0.2.1:
+    version "0.2.1"
+    resolved "https://registry.yarnpkg.com/keypress/-/keypress-0.2.1.tgz#1e80454250018dbad4c3fe94497d6e67b6269c77"
+  
   kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
     version "3.2.2"
     resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -2617,7 +2622,7 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   
-  lodash@^4.0.0, lodash@^4.17.4, lodash@~4.17.4:
+  lodash@^4.0.0, lodash@^4.17.4, lodash@^4.17.5, lodash@~4.17.4:
     version "4.17.5"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   
@@ -4710,5 +4715,5 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: ENOENT: no such file or directory, scandir 'C:\Users\grego\Desktop\Dev\parcel\vjplay1\node_modules\canvas'
+  Error: EPERM: operation not permitted, open 'C:\Users\grego\Desktop\Dev\parcel\vjplay1\node_modules\uglify-js\node_modules\yargs\CHANGELOG.md'
       at Error (native)

@@ -5,7 +5,9 @@
   "license": "MIT",
   "dependencies": {
     "fabric": "^2.0.1",
+    "keypress.js": "^2.1.4",
     "lodash": "^4.17.5",
+    "mousetrap": "^1.6.1",
     "node-sass": "^4.7.2",
     "pixi.js": "^4.7.0",
     "react": "^16.2.0",
