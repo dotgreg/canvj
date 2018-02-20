@@ -1,4 +1,8 @@
+let startingTime = Date.now()
+
 export let state = {
   canvas: {},
-  app: {}
+  app: {},
+  startingTime: startingTime,
+  currentTime: () => (Date.now() - startingTime) / 1000
 }
