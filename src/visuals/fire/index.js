@@ -1,59 +1,25 @@
 import * as PIXI from 'pixi.js'
 import {state} from '../../engine/state'
+import Video from '../../engine/video'
+import {filters} from '../../engine/filters'
 
 let item = {}
 
-// import video from './assets/10.mp4'
-import video from './assets/space1.mp4'
+import vid from './assets/10.mp4'
 
 export let start = () => {
 
-  let baseurl = 'http://localhost:1234'
-   let url = baseurl + video
-   var texture = PIXI.Texture.fromVideoUrl(url);
-   texture.loop = true
-   item.loop = true
+  item = new Video(vid)
 
-  // var texture = PIXI.Texture.fromVideoUrl('https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4');
-  item = new PIXI.Sprite(texture);
-  item.position.x = 0;
-  item.position.y = 0;
-  item.width = window.innerWidth;
-  item.height = window.innerHeight;
-  let cmf = new PIXI.filters.ColorMatrixFilter()
-  let cmf2 = new PIXI.filters.ColorMatrixFilter()
-  // item.filters = [cmf];
-  item.filters = [cmf, cmf2, new PIXI.filters.VoidFilter()];
-  item.filters[item.filters.length - 1].blendMode = PIXI.BLEND_MODES.SCREEN;
-  // item.filterBlendMode = PIXI.BLEND_MODES.ADD
-  // item.blendMode = PIXI.BLEND_MODES.SCREEN
-  cmf.brightness(1)
-  // cmf2.negative(0)
-  cmf2.lsd ()
+  item.sprite.filters = filters([new PIXI.filters.ColorMatrixFilter(), new PIXI.filters.ColorMatrixFilter()])
+  item.sprite.filters[0].brightness(0.2)
+  item.sprite.filters[1].blackAndWhite()
 
-  // var wrapper = new PIXI.Container();
-  // wrapper.addChild(item)
-  // wrapper.blendMode = PIXI.BLEND_MODES.ADD
-  // wrapper.
+  state.app.stage.addChild(item.container);
 
-
-  // var filter = new PIXI.filters.ColorMatrixFilter();
-
-  state.app.stage.addChild(item);
-  // state.app.stage.addChild(item);
-  console.log(item)
-  console.log(item.texture.baseTexture.source)
+  return item
 }
 
 export let stop = () => {
-  let video = item.texture.baseTexture.source
-  console.log(video)
-  video.pause()
-  // console.log('stop!')
-  // console.log(video.paused())
-  // video.pause()
-  // console.log(video.paused())
-
-  // item.texture.destroy()
-  item.destroy()
+  item.stop()
 }

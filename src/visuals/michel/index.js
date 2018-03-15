@@ -1,30 +1,18 @@
 import * as PIXI from 'pixi.js'
 import {state} from '../../engine/state'
-import {center} from '../../engine/placement'
-import {createSpriteTexture} from '../../engine/sprites'
+
+import {sprite} from '../../engine/sprite'
 import {cloneDeep, each} from 'lodash'
 
-import sprites from './images/*'
+import images from './images/*'
 
 let mc = {}
 
 export let start = () => {
-  console.log(createSpriteTexture(sprites))
-  mc = new PIXI.extras.AnimatedSprite(createSpriteTexture(sprites));
-
-  let size = 500
-
-  mc.width = size
-  mc.height = size
-
-  center(mc)
-
+  mc = sprite(images, 400)
+  mc.animationSpeed = 0.1
   state.app.stage.addChild(mc);
 
-  mc.play()
-
-  mc.animationSpeed = 0.1
-  mc.anchor.set(0)
 
   let cmf = new PIXI.filters.ColorMatrixFilter()
   let cmf2 = new PIXI.filters.ColorMatrixFilter()

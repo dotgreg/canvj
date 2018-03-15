@@ -1,6 +1,7 @@
-import {addVisual, removeVisual, removeAllVisuals} from '../engine/visuals'
+import {visual, removeVisual, removeAllVisuals} from '../engine/visuals'
 import {startKeysTracking, stopKeysTracking} from '../engine/keys'
-
+import * as PIXI from 'pixi.js'
+import {state} from '../engine/state'
 
 
 
@@ -10,30 +11,53 @@ export let goToCompo = (nb) => {
 
   switch (nb) {
     case 1:
-      // addVisual('sprite2')
-      // addVisual('sprite1')
-      addVisual('michel')
-      // addVisual('fire')
+      // visual('sprite2')
+      // visual('sprite1')
+
+      setTimeout(() => {
+      let water = visual('water')
+
+      var g1 = new PIXI.Graphics();
+      g1.drawRect(50, 50, state.width - 100, state.height - 100);
+      state.app.stage.addChild(g1);
+
+      var g2 = new PIXI.Graphics();
+      g2.drawRect(50, 50, state.width - 100, state.height - 100);
+      state.app.stage.addChild(g2);
+
+      let fire = visual('fire')
+      fire.container.mask = g2
+      // g2.mask = water
+      visual('michel')
+      }, 1000)
+      // visual('camerasinlove')
+
       break;
     case 2:
-      addVisual('sprite2')
-      addVisual('sprite3')
-      addVisual('sprite1')
-      // addVisual('video1')
+      visual('sprite2')
+      visual('sprite3')
+      visual('sprite1')
+      // visual('video1')
 
       break;
     case 3:
-      addVisual('sprite2')
-      addVisual('michel')
-      addVisual('head2')
-      addVisual('camerasinlove')
-      // addVisual('video1')
+      visual('sprite2')
+      visual('michel')
+      visual('head2')
+      visual('camerasinlove')
+      // visual('video1')
 
       break;
     case 4:
-      // addVisual('sprite2')
-      addVisual('michel')
-      addVisual('fire')
+      // visual('sprite2')
+      visual('michel')
+      visual('fire')
+
+      break;
+    case 5:
+      // visual('sprite2')
+      // visual('michel')
+      // visual('fire')
 
       break;
     default:
@@ -45,7 +69,8 @@ export let initKeysTracking = () => {
     ['1', () => goToCompo(1)],
     ['2', () => goToCompo(2)],
     ['4', () => goToCompo(4)],
-    ['3', () => goToCompo(3)]
+    ['4', () => goToCompo(4)],
+    ['5', () => goToCompo(5)]
   ]
   startKeysTracking(mapping)
 }

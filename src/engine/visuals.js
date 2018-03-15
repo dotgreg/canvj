@@ -8,6 +8,7 @@ import * as head2 from '../visuals/head2'
 import * as camerasinlove from '../visuals/camerasinlove'
 import * as video1 from '../visuals/video1'
 import * as fire from '../visuals/fire'
+import * as water from '../visuals/water'
 
 import {state} from './state'
 import {filter, each, forOwn, pickBy} from 'lodash'
@@ -22,11 +23,12 @@ let Visuals = {
   sprite3: sprite3,
   video1: video1,
   fire: fire,
+  water: water,
 }
 
-export let addVisual = (name) => {
-    Visuals[name].start()
+export let visual = (name) => {
     Visuals[name].started = true
+    return Visuals[name].start()
 }
 
 export let removeVisual = (name) => {
