@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js'
 import {state} from '../../engine/state'
 import {center} from '../../engine/placement'
+import {createSpriteTexture} from '../../engine/sprites'
 import {cloneDeep, each} from 'lodash'
 
 import sprites from './images/*'
@@ -8,21 +9,10 @@ import sprites from './images/*'
 let mc = {}
 
 export let start = () => {
+  console.log(createSpriteTexture(sprites))
+  mc = new PIXI.extras.AnimatedSprite(createSpriteTexture(sprites));
 
-  let gifImages = []
-  let baseurl = 'http://localhost:1234'
-  each(sprites, (i => gifImages.push(baseurl + i)))
-  let textureArray = [];
-
-  for (let i=0; i < gifImages.length; i++)
-  {
-    let texture = PIXI.Texture.fromImage(gifImages[i]);
-    textureArray.push(texture);
-  };
-
-  mc = new PIXI.extras.AnimatedSprite(textureArray);
-
-  let size = 400
+  let size = 500
 
   mc.width = size
   mc.height = size
@@ -33,15 +23,15 @@ export let start = () => {
 
   mc.play()
 
-  mc.animationSpeed = 0.2
+  mc.animationSpeed = 0.1
   mc.anchor.set(0)
 
-  // let cmf = new PIXI.filters.ColorMatrixFilter()
+  let cmf = new PIXI.filters.ColorMatrixFilter()
   let cmf2 = new PIXI.filters.ColorMatrixFilter()
-  mc.filters = [cmf2];
-  // cmf2.contrast(1)
+  mc.filters = [cmf2, cmf];
+  cmf2.contrast(10)
   // cmf2.negative()
-  cmf2.brightness(0.6)
+  cmf.brightness(0.6)
 
   // cmf.hue(100, 10)
   // cmf.greyscale(0.2)
@@ -61,7 +51,7 @@ export let start = () => {
     // mc.animationSpeed = Math.cos(x)
     // if (mc && mc.position)
     // console.log(mc);
-    mc.position.x = (window.innerWidth / 2) - (mc.width / 2) + (100 * ( Math.cos(state.currentTime())))
+    // mc.position.x = (window.innerWidth / 2) - (mc.width / 2) + (100 * ( Math.cos(state.currentTime())))
     // mc.position.x = (window.innerWidth / 2) - ((mc.width / 2) * 3) + (200 * ( Math.exp(Math.cos(x))))
     // mc.position.y = (window.innerHeight / 2) - (mc.height / 2) + (200 * ( Math.sin(x)))
     // console.log((20 * ( Math.sin(x))))

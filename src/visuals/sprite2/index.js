@@ -53,7 +53,7 @@ export let start = () => {
 
   let x = 0
   state.app.ticker.add(() => {
-    if (!mc || !mc.position) return false
+    if (mc.playing === false) return false
     // console.log(window.innerWidth, window.innerHeight)
     x = state.currentTime() * 2
     cmf.hue(Math.abs(Math.cos(x)) * 100, false)

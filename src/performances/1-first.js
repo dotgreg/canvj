@@ -10,8 +10,10 @@ export let goToCompo = (nb) => {
 
   switch (nb) {
     case 1:
-      addVisual('sprite2')
+      // addVisual('sprite2')
       // addVisual('sprite1')
+      addVisual('michel')
+      // addVisual('fire')
       break;
     case 2:
       addVisual('sprite2')
@@ -23,7 +25,15 @@ export let goToCompo = (nb) => {
     case 3:
       addVisual('sprite2')
       addVisual('michel')
+      addVisual('head2')
+      addVisual('camerasinlove')
       // addVisual('video1')
+
+      break;
+    case 4:
+      // addVisual('sprite2')
+      addVisual('michel')
+      addVisual('fire')
 
       break;
     default:
@@ -34,6 +44,7 @@ export let initKeysTracking = () => {
   let mapping = [
     ['1', () => goToCompo(1)],
     ['2', () => goToCompo(2)],
+    ['4', () => goToCompo(4)],
     ['3', () => goToCompo(3)]
   ]
   startKeysTracking(mapping)
