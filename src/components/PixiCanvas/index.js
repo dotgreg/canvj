@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import * as PIXI from 'pixi.js'
 
 import {state} from '../../engine/state'
-import * as performance from '../../performances/1-first'
+import * as performance from '../../performances/1'
 
 
 import './pixi.sass'

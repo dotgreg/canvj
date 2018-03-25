@@ -17,7 +17,7 @@ class Video  {
     this.sprite = new PIXI.Sprite(this.texture);
     this.sprite.position.x = 0;
     this.sprite.position.y = 0;
-
+ 
     this.sprite.width = state.width;
     this.sprite.height = state.height;
 
@@ -26,6 +26,7 @@ class Video  {
   }
 
   stop() {
+    console.log('stop video!')
     this.video.pause()
     this.sprite.destroy()
   }

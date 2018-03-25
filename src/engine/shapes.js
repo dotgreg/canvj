@@ -23,6 +23,7 @@ export const circle = (size = 100, color = '000000') => {
 }
 
 export const triangle = (size = 100, color = '000000') => {
+  console.log(size, color, 'lol')
   return graphics(color, graphics => {
     let o = {x: (state.width/2) - (size/7), y: (state.height/2) - (size/2)}
     graphics.moveTo(o.x, o.y);

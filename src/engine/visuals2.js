@@ -1,20 +1,20 @@
 import {state} from './state'
-import {assign} from 'lodash'
+import {assign, each, find, findIndex} from 'lodash'
 import Video from './video'
 import {filters} from './filters'
 import * as shapes from '../engine/shapes'
 
-let visuals = []
+export let visuals = []
 
 export let add = (...args) => {
-  if(args[0].endsWith('.mp4')) addVideoVisual(args)
+  if(args[0].endsWith('.mp4')) return addVideoVisual(args)
 
   let shapes = ['triangle', 'square', 'circle']
-  if (find(shapes, args[0])) addShapeVisual(args)
+  if (shapes.indexOf('square') > -1) return addShapeVisual(args)
 }
 
-export let removeAll = () => {
-  each(visuals, visual => visual.stop())
+export let removeAllVisuals = () => {
+  each(visuals, visual => {visual.stop()})
   visuals = []
 }
 
@@ -23,36 +23,39 @@ export let removeAll = () => {
 //
 
 export let addShapeVisual = (args) => {
-  let params = args.shift()
-  let shape = shapes[args[0]](params)
+  let params = [...args]
+  params.shift()
+  let shape = shapes[args[0]](...params)
 
   let visual = {
-    item: shape,
+    sprite: shape,
     stop: () => {
       state.app.stage.removeChild(shape)
     }
   }
 
   visuals.push(visual)
+  return visual
 }
 
 export let addVideoVisual = (args) => {
-  let visual = Video(args[0])
+
+  let visual = new Video(args[0])
 
   let init = {
-    speed: 1,
-    brightness: 1
+    s: 1,
+    o: 1
   }
   let params = assign(init, args[1])
-  console.log(params)
 
-  visual.video.playbackRate = params.speed
+  visual.video.playbackRate = params.s
 
   visual.sprite.filters = filters([new PIXI.filters.ColorMatrixFilter(), new PIXI.filters.ColorMatrixFilter()])
-  visual.sprite.filters[0].brightness(params.brightness)
+  visual.sprite.filters[0].brightness(params.o)
   visual.sprite.filters[1].blackAndWhite()
 
   state.app.stage.addChild(visual.container);
 
   visuals.push(visual)
+  return visual
 }

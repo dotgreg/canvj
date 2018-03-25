@@ -1,3 +1,5 @@
+import {visuals} from './visuals2'
+
 let startingTime = Date.now()
 
 export let state = {
