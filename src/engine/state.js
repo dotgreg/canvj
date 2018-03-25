@@ -8,5 +8,6 @@ export let state = {
   startingTime: startingTime,
   currentTime: () => (Date.now() - startingTime) / 1000,
   width: window.innerWidth,
-  height: window.innerHeight
+  height: window.innerHeight,
+  baseurl: 'http://localhost:1234'
 }

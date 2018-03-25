@@ -10,7 +10,7 @@ import vid from './water.mp4'
 export let start = () => {
 
   item = new Video(vid)
-  item.video.playbackRate = 0.7
+  item.video.playbackRate = 1
 
 
   item.sprite.filters = filters([new PIXI.filters.ColorMatrixFilter(), new PIXI.filters.ColorMatrixFilter()])

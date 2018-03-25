@@ -10,8 +10,7 @@ let mc = {}
 export let start = () => {
 
   let gifImages = []
-  let baseurl = 'http://localhost:1234'
-  each(sprites, (i => gifImages.push(baseurl + i)))
+  each(sprites, (i => gifImages.push(state.baseurl + i)))
   let textureArray = [];
 
   for (let i=0; i < gifImages.length; i++)

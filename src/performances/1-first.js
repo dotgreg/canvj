@@ -2,7 +2,10 @@ import {visual, removeVisual, removeAllVisuals} from '../engine/visuals'
 import {startKeysTracking, stopKeysTracking} from '../engine/keys'
 import * as PIXI from 'pixi.js'
 import {state} from '../engine/state'
+import {square, circle, triangle} from '../engine/shapes'
+import {random} from 'lodash'
 
+import {add} from '../engine/visuals2'
 
 
 export let goToCompo = (nb) => {
@@ -14,22 +17,41 @@ export let goToCompo = (nb) => {
       // visual('sprite2')
       // visual('sprite1')
 
+      add('10.mp4', {o: 0.2})
+      add('fire.mp4')
+      add('triangle', 400)
+
+      // add('10.mp4',{bw: false, o: 0.2})
+      // mask(add('fire.mp4'), add('triangle', {s: 400}))
+
+
+
       setTimeout(() => {
-      let water = visual('water')
 
-      var g1 = new PIXI.Graphics();
-      g1.drawRect(50, 50, state.width - 100, state.height - 100);
-      state.app.stage.addChild(g1);
 
-      var g2 = new PIXI.Graphics();
-      g2.drawRect(50, 50, state.width - 100, state.height - 100);
-      state.app.stage.addChild(g2);
+        //visual('fire')
+        //mask(visual('fire'), triange(400))
 
-      let fire = visual('fire')
-      fire.container.mask = g2
-      // g2.mask = water
-      visual('michel')
-      }, 1000)
+        // let sq, sq2
+        // let fire = visual('fire')
+        // sq = triangle(400, '000000')
+        // sq2 = triangle(400, '000000')
+        // let water = visual('water')
+        // water.container.mask = sq
+
+        // let sq, sq2
+        // let fire = visual('fire')
+        // sq = circle(300, '000000')
+        // sq2 = circle(300, '000000')
+        // let water = visual('water')
+        // water.container.mask = sq
+
+        // let water = visual('water')
+        // sq = circle(300, '000000')
+        // sq2 = circle(300, '000000')
+        // let fire = visual('fire')
+        // fire.container.mask = sq
+      }, 100)
       // visual('camerasinlove')
 
       break;

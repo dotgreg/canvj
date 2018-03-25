@@ -15,7 +15,7 @@ class PixiCanvas extends React.Component {
 
     // var app = new PIXI.Application(400, 400, {backgroundColor : 0xeeeaaa});
     // var app = new PIXI.Application(400, 400, {backgroundColor : 0x0ff3322});
-    var app = new PIXI.Application(400, 400, {backgroundColor : state.bg});
+    var app = new PIXI.Application(400, 400, {backgroundColor : state.bg, forceFXAA: true, forceCanvas: false});
     state.app = app
     this.refs.pixiContainer.appendChild(app.view);
 

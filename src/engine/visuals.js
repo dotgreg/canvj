@@ -9,6 +9,7 @@ import * as camerasinlove from '../visuals/camerasinlove'
 import * as video1 from '../visuals/video1'
 import * as fire from '../visuals/fire'
 import * as water from '../visuals/water'
+import * as videotest from '../visuals/videotest'
 
 import {state} from './state'
 import {filter, each, forOwn, pickBy} from 'lodash'
@@ -24,6 +25,7 @@ let Visuals = {
   video1: video1,
   fire: fire,
   water: water,
+  videotest: videotest,
 }
 
 export let visual = (name) => {

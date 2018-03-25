@@ -1,26 +1,13 @@
 import * as PIXI from 'pixi.js'
 import {state} from './state'
 
-// export const video = video => {
-//   let baseurl = 'http://localhost:1234'
-//   let url = baseurl + video
-//   var texture = PIXI.Texture.fromVideoUrl(url);
-//   texture.baseTexture.source.loop = true
-//
-//
-//
-//   return item
-// }
-
-let baseurl = 'http://localhost:1234'
-
 class Video  {
   constructor(url) {
     this.video = {}
     this.texture = {}
     this.sprite = {}
     this.container = {}
-    this.url = baseurl + url
+    this.url = state.baseurl + url
 
     this.texture = PIXI.Texture.fromVideoUrl(this.url);
 

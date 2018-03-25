@@ -1,11 +1,12 @@
 import * as PIXI from 'pixi.js'
 import {each} from 'lodash'
 import {center} from './placement'
+import {state} from './state'
 
 export const sprite = (images, size, position) => {
   let gifImages = []
-  let baseurl = 'http://localhost:1234'
-  each(images, (i => gifImages.push(baseurl + i)))
+  console.log(state.baseurl + images[0])
+  each(images, (i => gifImages.push(state.baseurl + i)))
   let textureArray = [];
 
   for (let i=0; i < gifImages.length; i++)
