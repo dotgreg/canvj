@@ -19,24 +19,6 @@ const graphics  = (color = '000000', code) => {
   return shape
 }
 
-export const square = (p) => {
-  return graphics(p.c, graphics => {
-    graphics.drawRect(p.s, p.s, state.width - (p.s*2), state.height - (p.s*2));
-  })
-}
-
-export const left = (p) => {
-  return graphics(p.c, graphics => {
-    graphics.drawRect(p.s, p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2));
-  })
-}
-
-export const right = (p) => {
-  return graphics(p.c, graphics => {
-    graphics.drawRect((state.width /2) , p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2));
-  })
-}
-
 export const circle = (p) => {
   return graphics(p.c, graphics => {
     graphics.drawCircle( state.width/2, state.height/2, p.s);
@@ -45,7 +27,7 @@ export const circle = (p) => {
 
 export const triangle = (p) => {
   return graphics(p.c, graphics => {
-    let o = {x: (state.width/2) - (p.s/7), y: (state.height/2) - (p.s/2)}
+    let o = {x: (state.width/2), y: (state.height/2) - (p.s/2)}
     graphics.moveTo(o.x, o.y);
     graphics.lineTo(o.x + p.s/1.6, o.y + p.s);
     graphics.lineTo(o.x - p.s/1.6, o.y + p.s);
@@ -62,3 +44,32 @@ export const cross = (p) => {
   //   graphics.endFill();
   // })
 }
+
+//
+// square based pattern
+//
+
+export const square = (p) => {
+  return graphics(p.c, graphics => {
+    graphics.drawRect(p.s, p.s, state.width - (p.s*2), state.height - (p.s*2));
+  })
+}
+
+//
+// left right
+//
+
+export const left = (p) => graphics(p.c, graphics => graphics.drawRect(p.s, p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2)))
+export const right = (p) => graphics(p.c, graphics => graphics.drawRect((state.width /2) , p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2)))
+
+//
+// 3
+//
+
+let tier = () => state.width / 3
+let w = s => tier() - (2 * s)
+let h = s => state.height - (2 * s)
+
+export const tier1 = (p) => graphics(p.c, graphics => graphics.drawRect((tier() * 0) + p.s, p.s, w(p.s), h(p.s) ))
+export const tier2 = (p) => graphics(p.c, graphics => graphics.drawRect((tier() * 1) + p.s, p.s, w(p.s), h(p.s) ))
+export const tier3 = (p) => graphics(p.c, graphics => graphics.drawRect((tier() * 2) + p.s, p.s, w(p.s), h(p.s) ))

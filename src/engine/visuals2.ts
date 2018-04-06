@@ -37,10 +37,9 @@ export let addV = (path:string, options:optionsV = {}) => {
   let time
   if (arr[1]) {
     let timeRaw = arr[1]
-    console.log(timeRaw)
     time = {
       start: minutesToMs(timeRaw.split(':')[0]),
-      stop: minutesToMs(timeRaw.split(':')[1])
+      stop: (timeRaw.split(':')[1]) ? minutesToMs(timeRaw.split(':')[1]) : 10000000
     }
   }
 

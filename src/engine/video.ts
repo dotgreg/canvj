@@ -48,7 +48,7 @@ class Video {
       }
       this.video.addEventListener('timeupdate', this.loopSection)
       // this.container.visible = true
-    }, 1000)
+    }, 2000)
   }
 
   loopSection = (e):void => {
