@@ -32,3 +32,10 @@ export const filters = filters => {
 
   return filters
 }
+
+export const bw = () => {
+  let filter = new PIXI.filters.ColorMatrixFilter()
+  // filter.blackAndWhite = true
+  filter.brightness = 0.2
+  return filter
+}

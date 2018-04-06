@@ -9,9 +9,12 @@
     "lodash": "^4.17.5",
     "mousetrap": "^1.6.1",
     "node-sass": "^4.7.2",
+    "pixi-filters": "^2.6.0",
     "pixi.js": "^4.7.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "stats.js": "^0.17.0",
+    "typescript": "^2.7.2"
   },
   "scripts": {
     "start": "parcel src/index.html",

@@ -11,5 +11,7 @@ export let state = {
   currentTime: () => (Date.now() - startingTime) / 1000,
   width: window.innerWidth,
   height: window.innerHeight,
-  baseurl: 'http://localhost:1234'
+  // baseurl: 'http://localhost:1234'
+  baseurl: 'http://127.0.0.1:1234'
 }
+ 

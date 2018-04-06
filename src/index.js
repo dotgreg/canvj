@@ -1,19 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as PIXI from 'pixi.js'
 
-import PixiCanvas from "./components/PixiCanvas";
+import {state} from './engine/state'
+import * as performance from './performances/1'
 
-import './style/reset.sass'
+var app = new PIXI.Application(400, 400, {backgroundColor : state.bg, forceFXAA: true, forceCanvas: false});
+state.app = app
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <PixiCanvas />
-      </div>
-    );
-  }
+document.getElementById('pixiContainer').appendChild(app.view);
+console.log(document.getElementById('pixiContainer'))
+
+performance.goToCompo(1)
+performance.initKeysTracking()
+
+state.app.renderer.resize(window.innerWidth, window.innerHeight);
+window.addEventListener("resize", () => {state.app.renderer.resize(window.innerWidth, window.innerHeight)})
+
+
+if (module.hot) {
+  module.hot.accept(() => {
+    console.log(1)
+  });
+
+  module.hot.dispose(() => {
+    console.log(2)
+    window.location.reload();
+  });
 }
-
-var mountNode = document.getElementById("app");
-ReactDOM.render(<App />, mountNode);
