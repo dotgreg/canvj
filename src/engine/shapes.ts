@@ -36,13 +36,25 @@ export const triangle = (p) => {
 }
 
 export const cross = (p) => {
-  // return graphics(color, graphics => {
-  //   let o = {x: (state.width/2), y: (state.height/2) }
-  //   graphics.moveTo(o.x, o.y);
-  //   graphics.lineTo(o.x + size/1.6, o.y + size);
-  //   graphics.lineTo(o.x - size/1.6, o.y + size);
-  //   graphics.endFill();
-  // })
+  let x = state.width/2 - ((p.s*2)/2)
+  let y = state.height/2 - ((p.s*3)/2)
+  let size = p.s
+  return graphics(p.c, graphics => {
+    graphics.drawPolygon([
+      x, y,
+      x+size, y,
+      x+size, y+size,
+      x+(2*size), y+size,
+      x+(2*size), y+(2*size),
+      x+(size), y+(2*size),
+      x+(size), y+(3*size),
+      x, y+(3*size),
+      x, y+(2*size),
+      x - size, y+(2*size),
+      x - size, y+(size),
+      x , y+(size),
+    ]);
+  })
 }
 
 //

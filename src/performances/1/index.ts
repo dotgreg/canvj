@@ -45,6 +45,8 @@ export let goToCompo = (nb) => {
       // addS('left', {s: 50, c:'000'})
       // mask(addV('lava1.mp4?0.10', {o:0.7, bw: false}), addS('left', {s: 50, c:'000'}))
 
+
+      // DOUBLE + CIRCLE
       // addS('square', {s: 0, c:'000000'})
       // mask(addV('water.mp4', {o:0.4, bw: false}), addS('right', {s: 50, c: 'fff'}))
       // addS('left', {s: 50, c:'000'})
@@ -52,9 +54,21 @@ export let goToCompo = (nb) => {
       // addS('circle', {s: 200, c:'000000'})
       // mask(addV('space1.mp4', {o: 2, bw: true, rgb: false}),  addS('circle', {s: 200}))
 
-      mask(addV('water.mp4', {o:0.4, bw: false}), addS('tier1', {s: 50, c:'000'}))
-      mask(addV('lava1.mp4?0.10', {o:0.7, bw: false}), addS('tier2', {s: 50, c:'000'}))
-      mask(addV('space1.mp4', {o: 2, bw: true, rgb: false}),  addS('tier3', {s: 50, c:'000'}))
+      // TIER
+      // mask(addV('water.mp4', {o:0.4, bw: false}), addS('tier1', {s: 50, c:'000'}))
+      // mask(addV('lava1.mp4?0.10', {o:0.7, bw: false}), addS('tier2', {s: 50, c:'000'}))
+      // mask(addV('space1.mp4', {o: 2, bw: true, rgb: false}),  addS('tier3', {s: 50, c:'000'}))
+
+      // FACEMAN + lave
+      // mask(addV('lava1.mp4?0.10', {o:1, bw: false}), addS('tier1', {s: 50, c:'000'}))
+      // mask(addV('faceman1.mp4', {o:0.4, bw: true}), addS('tier2', {s: 50, c:'000'}))
+      // mask(addV('lava2.mp4', {o:1, bw: false}),  addS('tier3', {s: 50, c:'000'}))
+
+      //CROSS
+      addS('square', {s: 0, c:'000000'})
+      mask(addV('water.mp4', {o:0.3, bw: true}), addS('square', {s: 50, c: 'fff'}))
+      addS('cross', {s: 50, c:'000'})
+      mask(addV('sand1.mp4', {o:0.7, bw: true}), addS('cross', {s: 50, c:'000'}))
 
       // 2
       // addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})
