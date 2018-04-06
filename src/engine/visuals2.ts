@@ -3,9 +3,12 @@ import {state} from './state'
 import {assign, each, find, findIndex, random} from 'lodash'
 import Video from './video'
 import {filters, bw, brightness} from './filters'
+import {minutesToMs} from './utils'
 import * as shapes from '../engine/shapes'
 import * as F from 'pixi-filters'
 declare var require
+
+let v = require('../videos/*')
 
 export let visuals = []
 
@@ -21,9 +24,22 @@ interface options {
   extra?:any[]
 }
 
-export let addV = (url:string, options:options = {}) => {
+export let addV = (path:string, options:options = {}) => {
 
-  let visual = new Video(url)
+  let arr = path.split('?')
+  let filename = arr[0]
+
+
+  let time
+  if (arr[1]) {
+    let timeRaw = arr[1]
+    time = {
+      start: minutesToMs(timeRaw.split(':')[0]),
+      stop: minutesToMs(timeRaw.split(':')[1])
+    }
+  }
+
+  let visual = (time) ? new Video(v[filename],{time: time}) : new Video(v[filename])
 
   let filtersArr = []
   if (options.bw) filtersArr.push(bw())

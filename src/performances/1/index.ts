@@ -12,7 +12,7 @@ import {startKeysTracking, stopKeysTracking} from '../../engine/keys'
 
 declare var require
 // @ts-ignore
-let v = require('../../videos/*')
+// let v = require('../../videos/*')
 
 export let goToCompo = (nb) => {
   removeAllVisuals()
@@ -21,11 +21,12 @@ export let goToCompo = (nb) => {
   switch (nb) {
     case 1:
 
-      addV(v['water.mp4'], {o:0.2, bw: true})
-      addS('triangle', 300)
-      let v1 = addV(v['space1.mp4'], {o: 2, bw: true, ascii:15, rgb: true})
+      // addV(v['space2.mp4'], {o:2, bw: true, rgb: false, ascii:10})
+      addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})
+      // addS('triangle', 300)
+      // let v1 = addV('space1.mp4', {o: 2, bw: true, rgb: false})
       // add('triangle', 300, '000000')
-      mask(v1, addS('triangle', 300))
+      // mask(v1, addS('triangle', 300))
 
       break;
     case 2:
