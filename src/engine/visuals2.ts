@@ -8,7 +8,7 @@ import * as shapes from '../engine/shapes'
 import * as F from 'pixi-filters'
 declare var require
 
-let v = require('../videos/*')
+let v = require('../visuals/videos/*')
 
 export let visuals = []
 
@@ -16,15 +16,16 @@ export let visuals = []
 // ADD v3
 //
 
-interface options {
+interface optionsV {
   o?:number
   bw?: boolean
   ascii?: number
+  pix?: number
   rgb?: boolean
   extra?:any[]
 }
 
-export let addV = (path:string, options:options = {}) => {
+export let addV = (path:string, options:optionsV = {}) => {
 
   let arr = path.split('?')
   let filename = arr[0]
@@ -46,6 +47,7 @@ export let addV = (path:string, options:options = {}) => {
   if (options.o) filtersArr.push(brightness(options.o))
   if (options.ascii) filtersArr.push(new F.AsciiFilter(options.ascii))
   if (options.rgb) filtersArr.push(new F.RGBSplitFilter())
+  if (options.pix) filtersArr.push(new F.PixelateFilter(options.pix))
   if (options.extra) each(options.extra, filter => filtersArr.push(filter))
 
   visual.sprite.filters = filters(filtersArr)
@@ -56,8 +58,13 @@ export let addV = (path:string, options:options = {}) => {
   return visual
 }
 
-export let addS = (type:string, params:Object) => {
-  let shape = shapes[type](params)
+interface optionsS {
+  s?:number
+  c?:string
+}
+
+export let addS = (type:string, options:optionsS) => {
+  let shape = shapes[type](options)
 
   let visual = {
     sprite: shape,

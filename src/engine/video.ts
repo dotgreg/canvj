@@ -19,14 +19,14 @@ class Video {
   timeLoop:any = {}
 
   constructor(url, options:options = {}) {
-    console.log('NEW VIDEO',url,  options)
+    // console.log('NEW VIDEO',url,  options)
 
     if(options.time) this.timeLoop = options.time
 
     this.url = state.baseurl + url
 
-    this.texture = PIXI.Texture.fromVideoUrl(this.url);
 
+    this.texture = PIXI.Texture.fromVideoUrl(this.url);
     this.video = this.texture.baseTexture.source
     this.video.loop = true
 
@@ -39,17 +39,19 @@ class Video {
 
     this.container = new PIXI.Container()
     this.container.addChild(this.sprite)
+    // this.container.visible = false
 
     this.video.muted = true
 
     setTimeout(() => {
       if(this.timeLoop.start) {
         this.video.currentTime = this.timeLoop.start / 1000
-        console.log(this.timeLoop.start / 1000)
+        // console.log(this.timeLoop.start / 1000)
         this.video.play()
       }
       this.video.addEventListener('timeupdate', this.loopSection)
-    }, 200)
+      // this.container.visible = true
+    }, 1000)
   }
 
   loopSection = (e):void => {
@@ -60,7 +62,7 @@ class Video {
         v.currentTime = this.timeLoop.start / 1000;
         v.play();
     }
-  
+
   }
 
   stop() {

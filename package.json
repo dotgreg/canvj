@@ -17,7 +17,7 @@
     "typescript": "^2.7.2"
   },
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "parcel src/index.html --no-hmr --no-source-maps",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
