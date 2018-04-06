@@ -5,7 +5,6 @@ import {state} from './state'
 
 export const sprite = (images, size, position) => {
   let gifImages = []
-  console.log(state.baseurl + images[0])
   each(images, (i => gifImages.push(state.baseurl + i)))
   let textureArray = [];
 

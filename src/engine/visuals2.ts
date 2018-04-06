@@ -21,7 +21,10 @@ interface optionsV {
   bw?: boolean
   ascii?: number
   pix?: number
+  noise?: number
+  blur?: number
   rgb?: boolean
+  dot?: number
   extra?:any[]
 }
 
@@ -34,6 +37,7 @@ export let addV = (path:string, options:optionsV = {}) => {
   let time
   if (arr[1]) {
     let timeRaw = arr[1]
+    console.log(timeRaw)
     time = {
       start: minutesToMs(timeRaw.split(':')[0]),
       stop: minutesToMs(timeRaw.split(':')[1])
@@ -48,6 +52,10 @@ export let addV = (path:string, options:optionsV = {}) => {
   if (options.ascii) filtersArr.push(new F.AsciiFilter(options.ascii))
   if (options.rgb) filtersArr.push(new F.RGBSplitFilter())
   if (options.pix) filtersArr.push(new F.PixelateFilter(options.pix))
+  if (options.blur) filtersArr.push(new PIXI.filters.BlurFilter(options.blur))
+  // if (options.noise) filtersArr.push(new PIXI.filters.NoiseFilter(options.noise))
+  if (options.noise) filtersArr.push(new F.OldFilmFilter(options.noise))
+  if (options.dot) filtersArr.push(new F.DotFilter(options.dot))
   if (options.extra) each(options.extra, filter => filtersArr.push(filter))
 
   visual.sprite.filters = filters(filtersArr)

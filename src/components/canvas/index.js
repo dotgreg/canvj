@@ -15,7 +15,6 @@ import './canvas.sass'
 class Canvas extends React.Component {
 
   componentDidMount() {
-    console.log('CANVAS componentDidMount')
 
     e.canvas = new fabric.Canvas(this.refs.canvas)
     e.canvas.setDimensions({width: 600, height: 400})

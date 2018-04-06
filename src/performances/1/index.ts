@@ -16,16 +16,34 @@ declare var require
 
 export let goToCompo = (nb) => {
   removeAllVisuals()
-  console.log(`animate to ${nb}`)
 
   switch (nb) {
     case 1:
       // extra: [ new F.BloomFilter()]
+
       // 1
       // addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})
-      mask(addV('water.mp4', {o:0.3, bw: true, pix: 15}), addS('square', {s: 50, c: '0f0000'}))
-      addS('circle', {s: 250, c: '0f0000'})
-      mask(addV('spaceodysee1.mp4?2.22:3.40'), addS('circle', {s: 250, c:'000'}))
+      // mask(addV('water.mp4', {o:0.3, bw: true, pix: 15}), addS('square', {s: 50, c: '0f0000'}))
+      // addS('circle', {s: 250, c: '0f0000'})
+      // mask(addV('spaceodysee1.mp4?2.22:3.40', {pix: 10}), addS('circle', {s: 250, c:'000'}))
+
+      // 1
+      // mask(addV('water.mp4', {o:0.3, bw: true, blur: 15}), addS('square', {s: 50, c: '0f0000'}))
+      // addS('square', {s: 0, c:'000000'})
+      // mask(addV('water.mp4', {o:0.3, bw: true, dot: 2}), addS('right', {s: 50, c: 'fff'}))
+      // addS('left', {s: 50, c:'000'})
+      // mask(addV('spaceodysee1.mp4?2.22:3.40'), addS('left', {s: 50, c:'000'}))
+
+
+      // addS('square', {s: 0, c:'000000'})
+      // mask(addV('water.mp4', {o:0.3, bw: true}), addS('right', {s: 50, c: 'fff'}))
+      // addS('left', {s: 50, c:'000'})
+      // mask(addV('sand1.mp4', {o:0.7, bw: true}), addS('left', {s: 50, c:'000'}))
+
+      addS('square', {s: 0, c:'000000'})
+      mask(addV('water.mp4', {o:0.3, bw: true}), addS('right', {s: 50, c: 'fff'}))
+      addS('left', {s: 50, c:'000'})
+      mask(addV('lava1.mp4?0.10', {o:0.7, bw: true}), addS('left', {s: 50, c:'000'}))
 
       // 2
       // addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})

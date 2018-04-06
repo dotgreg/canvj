@@ -19,8 +19,6 @@ class Video {
   timeLoop:any = {}
 
   constructor(url, options:options = {}) {
-    // console.log('NEW VIDEO',url,  options)
-
     if(options.time) this.timeLoop = options.time
 
     this.url = state.baseurl + url
@@ -46,7 +44,6 @@ class Video {
     setTimeout(() => {
       if(this.timeLoop.start) {
         this.video.currentTime = this.timeLoop.start / 1000
-        // console.log(this.timeLoop.start / 1000)
         this.video.play()
       }
       this.video.addEventListener('timeupdate', this.loopSection)
@@ -66,7 +63,6 @@ class Video {
   }
 
   stop() {
-    console.log('stop video!')
     this.video.removeEventListener('timeupdate', this.loopSection)
     this.video.pause()
     this.sprite.destroy()

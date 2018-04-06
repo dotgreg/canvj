@@ -25,6 +25,18 @@ export const square = (p) => {
   })
 }
 
+export const left = (p) => {
+  return graphics(p.c, graphics => {
+    graphics.drawRect(p.s, p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2));
+  })
+}
+
+export const right = (p) => {
+  return graphics(p.c, graphics => {
+    graphics.drawRect((state.width /2) , p.s, (state.width /2) - (p.s * 1), state.height - (p.s * 2));
+  })
+}
+
 export const circle = (p) => {
   return graphics(p.c, graphics => {
     graphics.drawCircle( state.width/2, state.height/2, p.s);
@@ -32,7 +44,6 @@ export const circle = (p) => {
 }
 
 export const triangle = (p) => {
-  console.log(p)
   return graphics(p.c, graphics => {
     let o = {x: (state.width/2) - (p.s/7), y: (state.height/2) - (p.s/2)}
     graphics.moveTo(o.x, o.y);
