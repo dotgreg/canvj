@@ -24,9 +24,9 @@ export let goToCompo = (nb) => {
       // addV(v['space2.mp4'], {o:2, bw: true, rgb: false, ascii:10})
       addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})
       // addS('triangle', 300)
-      // let v1 = addV('space1.mp4', {o: 2, bw: true, rgb: false})
+      let v1 = addV('space1.mp4', {o: 2, bw: true, rgb: false})
+      mask(v1, addS('triangle', 300))
       // add('triangle', 300, '000000')
-      // mask(v1, addS('triangle', 300))
 
       break;
     case 2:
