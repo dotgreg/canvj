@@ -21,7 +21,9 @@ export let goToCompo = (nb) => {
   switch (nb) {
     case 1:
 
-      let v1 = addV(v['space1.mp4'], [new F.CRTFilter(), new F.RGBSplitFilter()], {o: 0.2, bw: true})
+      addV(v['water.mp4'], {o:0.2, bw: true})
+      addS('triangle', 300)
+      let v1 = addV(v['space1.mp4'], {o: 2, bw: true, ascii:15, rgb: true})
       // add('triangle', 300, '000000')
       mask(v1, addS('triangle', 300))
 
