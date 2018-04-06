@@ -67,8 +67,8 @@ export let goToCompo = (nb) => {
       //CROSS
       addS('square', {s: 0, c:'000000'})
       mask(addV('water.mp4', {o:0.3, bw: true}), addS('square', {s: 50, c: 'fff'}))
-      addS('cross', {s: 50, c:'000'})
-      mask(addV('sand1.mp4', {o:0.7, bw: true}), addS('cross', {s: 50, c:'000'}))
+      addS('cross', {s: 140, c:'000'})
+      mask(addV('sand1.mp4', {o:0.7, bw: false}), addS('cross', {s: 140, c:'000'}))
 
       // 2
       // addV('lightspeed.mp4?0.20:0.40', {o:1, bw: true, ascii: 5})

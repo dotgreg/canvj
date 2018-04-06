@@ -36,7 +36,7 @@ export const triangle = (p) => {
 }
 
 export const cross = (p) => {
-  let x = state.width/2 - ((p.s*2)/2)
+  let x = state.width/2 - ((p.s)/2)
   let y = state.height/2 - ((p.s*3)/2)
   let size = p.s
   return graphics(p.c, graphics => {
