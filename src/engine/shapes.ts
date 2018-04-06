@@ -8,7 +8,6 @@ const graphics  = (color = '000000', code) => {
   shape.beginFill(`0x${color}`,1)
   code(shape)
   shape.endFill()
-
   // shape.filters = filters([
   // //    // new PIXIF.AsciiFilter(7)
   // //    // new PIXI.filters.BlurFilter()
@@ -55,6 +54,14 @@ export const cross = (p) => {
       x , y+(size),
     ]);
   })
+}
+
+export const crossX = (p) => {
+  let shape = cross(p)
+  console.log(shape)
+
+  // shape.rotation = 1
+  return shape
 }
 
 //

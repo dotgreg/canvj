@@ -38,7 +38,7 @@ class Video {
     this.container = new PIXI.Container()
     this.container.addChild(this.sprite)
     // this.container.visible = true
-    setTimeout(() => { this.container.visible = false }, 500)
+    // setTimeout(() => { this.container.visible = false }, 100)
 
     this.video.muted = true
 
@@ -48,8 +48,8 @@ class Video {
         this.video.play()
       }
       this.video.addEventListener('timeupdate', this.loopSection)
-      this.container.visible = true
-    }, 2000)
+      // this.container.visible = true
+    }, 1000)
   }
 
   loopSection = (e):void => {

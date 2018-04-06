@@ -32,6 +32,30 @@ window.addEventListener("resize", () => {
 })
 
 
+// SMOOTH RELOAD
+let canvas = document.getElementById('pixiContainer')
+// let appV = document.getElementById('app')
+canvas.style.opacity = 0
+setTimeout(() => {
+  canvas.style.opacity = 1
+}, 2000)
+
+document.onkeypress = function (e) {
+  console.log(e)
+    // e = e || window.event;
+    // if(e.keyCode === 5) {
+    //     window.location.href = state.baseurl
+    // }
+    if (e.key === 'e') {
+      canvas.style.opacity = 0
+      setTimeout(() => {
+        window.location.href = state.baseurl
+      }, 1000)
+    }
+};
+
+
+
 if (module.hot) {
   module.hot.accept(() => {
   });
