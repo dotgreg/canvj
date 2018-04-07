@@ -4,6 +4,9 @@ import {assign, each, find, findIndex, random} from 'lodash'
 import Video from './video'
 import {filters, bw, brightness} from './filters'
 import {minutesToMs} from './utils'
+
+import {mirrorFilter} from './filters/mirror'
+
 import * as shapes from '../engine/shapes'
 import * as F from 'pixi-filters'
 declare var require
@@ -24,6 +27,7 @@ interface optionsV {
   noise?: number
   blur?: number
   rgb?: boolean
+  mirror?: 'x' | 'y' | 'xy'
   dot?: number
   extra?:any[]
 }
@@ -55,6 +59,13 @@ export let addV = (path:string, options:optionsV = {}) => {
   // if (options.noise) filtersArr.push(new PIXI.filters.NoiseFilter(options.noise))
   if (options.noise) filtersArr.push(new F.OldFilmFilter(options.noise))
   if (options.dot) filtersArr.push(new F.DotFilter(options.dot))
+
+  // console.log(customFilter())
+  if (options.mirror) {
+    if (options.mirror === 'x')filtersArr.push(mirrorFilter(true, false))
+    if (options.mirror === 'y')filtersArr.push(mirrorFilter(false, true))
+    if (options.mirror === 'xy')filtersArr.push(mirrorFilter(true, true))
+  }
   if (options.extra) each(options.extra, filter => filtersArr.push(filter))
 
   visual.sprite.filters = filters(filtersArr)

@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js'
 
 import {state} from './engine/state'
-import * as performance from './performances/1'
+import * as performance from './performances/2'
 
 let width
 let height
