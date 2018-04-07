@@ -10,6 +10,8 @@ import * as F from 'pixi-filters'
 
 import {startKeysTracking, stopKeysTracking} from '../../engine/keys'
 
+import {testFilter} from '../../engine/filters/test'
+
 declare var require
 // @ts-ignore
 // let v = require('../../videos/*')
@@ -26,9 +28,10 @@ export let goToCompo = (nb) => {
       // mask(addV('lava2.mp4', {o: 3, bw: false, pix: 20}),  addS('cross', {s: 120}))
 
       // let vid = addV('godarddance.mp4?0.10', {o:1, bw: false, extra: [new F.ReflectionFilter()]})
-      let vid = addV('berlincalling1.mp4?0.10', {o:0.4, bw: false, mirror:'xy'})
-      addS('cross', {s: 120, c:'00000'})
-      mask(addV('lava2.mp4', {o: 3, bw: false}),  addS('cross', {s: 120}))
+      // let vid = addV('berlincalling1.mp4?0.10', {o:1, bw: false, mirror:'xy', ascii: 5})
+      let vid = addV('berlincalling1.mp4?0.10', {extra:[testFilter()]})
+      // addS('cross', {s: 120, c:'00000'})
+      // mask(addV('lava2.mp4', {o: 3, bw: false}),  addS('cross', {s: 120}))
       // mask(addV('godarddance.mp4?0.10', {o:1, bw: false, custom:true}), addS('circle', {s: 200, c:'000'}) )
       // vid.sprite.rotation = 0.1
       // console.log(vid)

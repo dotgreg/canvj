@@ -6,6 +6,7 @@ import {filters, bw, brightness} from './filters'
 import {minutesToMs} from './utils'
 
 import {mirrorFilter} from './filters/mirror'
+import {testFilter} from './filters/test'
 
 import * as shapes from '../engine/shapes'
 import * as F from 'pixi-filters'
