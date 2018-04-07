@@ -5,13 +5,16 @@
     </head>
     <body>
         <div id="app"></div>
-        <div className="c-pixi">
+        <div className="c-pixi" id="pixiContainer2">
           <div ref="pixiContainer" className="pixi-container" id="pixiContainer"></div>
         </div>
         <script src="index.js"></script>
     </body>
     <style>
       body { margin: 0px; padding: 0px; background: black; }
+      #pixiContainer2 {
+        transition: all 1s linear;
+      }
       #pixiContainer {
         transition: all 1s linear;
       }

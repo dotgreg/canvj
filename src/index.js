@@ -34,11 +34,14 @@ window.addEventListener("resize", () => {
 
 // SMOOTH RELOAD
 let canvas = document.getElementById('pixiContainer')
+let canvas2 = document.getElementById('pixiContainer2')
 // let appV = document.getElementById('app')
 canvas.style.opacity = 0
+canvas2.style.opacity = 0
 setTimeout(() => {
   canvas.style.opacity = 1
-}, 2000)
+  canvas2.style.opacity = 1
+}, 1000)
 
 document.onkeypress = function (e) {
   console.log(e)
